@@ -9,5 +9,21 @@
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload'
     = javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
   %body
-    
+    %header.header
+      .header_logos
+        - if !current_page?(boards_path)
+          = link_to :back do
+            = image_tag '', class: 'header_back'
+        %p.header_pageTitle
+          = link_to 'No-me', boards_path
+      
+      .header_post
+        = link_to '新規投稿', new_board_path
+
+      
+
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
     = yield
