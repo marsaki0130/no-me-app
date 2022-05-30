@@ -1,3 +1,7 @@
 .container
   .header_logo
     %h2 俺【私】に言うなや！！一覧
+
+  - @boards.each do |board|
+    .board_list
+      %p= board.title
