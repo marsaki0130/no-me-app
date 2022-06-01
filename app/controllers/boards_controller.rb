@@ -7,6 +7,10 @@ class BoardsController < ApplicationController
     @board = current_user.boards.build
   end
 
+  def show
+    @board = Board.find(params[:id])
+  end
+
   def create
     @board = current_user.boards.build(board_params)
     if @board.save
