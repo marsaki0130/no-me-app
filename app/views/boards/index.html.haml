@@ -1,4 +1,11 @@
 .container
+  .tabs
+    .tabs_item{class: "#{'active' if current_page?(boards_path)}"}
+      = link_to boards_path do
+        新着順
+    .tabs_item{class: "#{'active' if current_page? (timeline_path)}"}
+      = link_to timeline_path do
+        タイムライン
   .header_logo
     %h2 俺【私】に言うなや！！一覧
 
