@@ -5,4 +5,6 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   resources :boards
+  
+  resource :timeline, only:[:show]
 end
