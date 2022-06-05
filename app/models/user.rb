@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :boards
+  has_many :likes
+
+  def like_count
+    likes.count
+  end
 end
