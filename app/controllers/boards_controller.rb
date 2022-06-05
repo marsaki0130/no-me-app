@@ -16,8 +16,16 @@ class BoardsController < ApplicationController
     if @board.save
       redirect_to boards_path, notice: '保存できました'
     else
+      flash.now[:eroor] = '保存に失敗しました'
       render :new
     end
+  end
+
+
+  def likes
+    @board = Board.find(params[:board_id])
+    @like = @board.likes + 100
+    @board.update(likes: @like)
   end
 
   private

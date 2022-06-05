@@ -4,7 +4,8 @@ Rails.application.routes.draw do
 
   root to: "home#index"
 
-  resources :boards
-  
+  resources :boards do
+    post 'likes', to: 'boards#likes'
+  end
   resource :timeline, only:[:show]
 end
