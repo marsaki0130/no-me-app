@@ -1,6 +1,11 @@
 .container
+  .board_title
+    %span= @board.likes 
   .board_list
     %p タイトル
     %p= @board.title
     %p 出来事
     %p= @board.content
+
+  = link_to board_likes_path(@board), class: "level-item", method: :post, remote: true do
+    %button.btn-circle-3d-emboss.button.is-large.fas.fa-yen-sign.mt-3.mb-6 100円
